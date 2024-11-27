@@ -4,20 +4,54 @@ The swift advancement of single-cell RNA sequencing (scRNA-seq) technologies ena
 
 ![scCLG](figures/framework.png)
 
-## install
+## Installation
+
+### create conda environment
 
 `conda create -n scclg python=3.7.4`
 
-## Requirements
+### install requirements
 
 ```
 conda activate scclg
 pip install -r requirements
 ```
 
+## Project structure
+
+```
++--data
+|      +--Muraro
+|      |      +--data.h5
++--data_dropouted
+|      +--Muraro_sorted_trainset_300_gpu.txt
++--figures
+|      +--framework.pdf
+|      +--framework.png
++--utils
+|      +--early_stop.py
+|      +--graph_function.py
+|      +--layers.py
+|      +--loss.py
+|      +--preprocess.py
+|      +--preprocess_cl.py
+|      +--preprocess_order.py
+|      +--SingleCell.py
+|      +--utils.py
+|      +--util_clnode.py
++--wandb
++--LICENSE
++--README.md
++--sccheb.py
++--sccheb_cl.py
++--train.sh
++--train_cl.py
+```
+
 ## Usage
 
 You can run the DP-DCAN from the command line:
 ```
-python train_cl.py --is_cl --expname CL --dataname Muraro --highly_genes 500 --pretrain_epochs 1000 --maxiter 500 --prune_epoch 30 --k 20
+python train_cl.py --is_cl --expname CL --dataname Muraro --highly_genes 500 --pretrain_epochs 1000 \
+        --maxiter 500 --prune_epoch 30 --k 20
 ```
